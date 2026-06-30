@@ -91,7 +91,3 @@ The **Up Skilling** program focuses on strengthening frontend development and da
 To enhance my technical knowledge and practical skills by completing the Cognizant Digital Nurture 5.0 Java Full Stack Engineer learning path through hands-on exercises, projects, and real-world application development.
 
 ---
-
-## Author
-
-**MOHEMMED IBRAHIM**
