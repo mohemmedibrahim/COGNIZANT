@@ -12,7 +12,6 @@
 - Java
 - Eclipse IDE
 - Object-Oriented Programming (OOP)
-- Spring Framework
 
 ## Objective
 To understand and implement the basic software design patterns using Java as part of the CTS Digital Nurture Java FSE Deep Skilling Program.
