@@ -1,4 +1,4 @@
-# Digital Nurture Java FSE
+# Digital Nurture 5.0 Java FSE
 
 ## Up Skilling
 
@@ -19,5 +19,3 @@
 ## Objective
 To learn and build a strong foundation in front-end web development by implementing responsive web pages, interactive user interfaces, database fundamentals, and version control as part of the CTS Digital Nurture Java FSE Up Skilling Program.
 
-## Author
-**MOHEMMED IBRAHIM**
