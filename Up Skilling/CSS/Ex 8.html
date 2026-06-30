@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Box Model and Layout Control</title>
+
+    <style>
+    body{
+
+    font-family: Arial, sans-serif;
+
+    background-color: #f2f2f2;
+
+    margin: 0;
+
+    padding: 20px;
+
+}
+
+
+.eventCard{
+
+    background-color: white;
+
+    border: 3px solid darkblue;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    border-radius: 10px;
+
+    box-shadow: 0px 0px 10px gray;
+
+}
+
+
+.formContainer{
+
+    background-color: white;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    box-shadow: 0px 0px 10px gray;
+
+}
+
+
+.inputField{
+
+    width: 90%;
+
+    padding: 12px;
+
+    border: 2px solid gray;
+
+    border-radius: 5px;
+
+    font-size: 16px;
+
+}
+
+
+.inputField:focus{
+
+    outline: 4px solid orange;
+
+}
+
+
+.hiddenBox{
+
+    visibility: hidden;
+
+}
+
+.noneBox{
+
+    display: none;
+
+}
+
+    </style>
+</head>
+
+<body>
+
+    <div class="eventCard">
+
+        <h2>Technical Workshop</h2>
+
+        <p>
+            Learn AI, Web Development, and Cloud Computing technologies.
+        </p>
+
+    </div>
+
+    <div class="eventCard hiddenBox">
+
+        <h2>Hidden Section</h2>
+
+        <p>
+            This section uses visibility: hidden
+        </p>
+
+    </div>
+
+    <div class="eventCard noneBox">
+
+        <h2>Removed Section</h2>
+
+        <p>
+            This section uses display: none
+        </p>
+
+    </div>
+
+    <div class="formContainer">
+
+        <h2>Registration Form</h2>
+
+        <form>
+
+            <input 
+                type="text"
+                placeholder="Enter your name"
+                class="inputField"
+            >
+
+            <br><br>
+
+            <input 
+                type="email"
+                placeholder="Enter your email"
+                class="inputField"
+            >
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>
+

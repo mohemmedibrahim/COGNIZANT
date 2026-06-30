@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Arrays and Methods</title>
+
+    <style>
+
+        body{
+
+            font-family: Arial, sans-serif;
+
+            background-color: #f2f2f2;
+
+            padding: 20px;
+
+        }
+
+        h1{
+
+            color: darkblue;
+
+        }
+
+        .eventCard{
+
+            background-color: white;
+
+            padding: 20px;
+
+            margin-bottom: 20px;
+
+            border-radius: 10px;
+
+            box-shadow: 0px 0px 10px gray;
+
+        }
+
+        button{
+
+            padding: 10px 15px;
+
+            background-color: blue;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+        }
+
+        button:hover{
+
+            background-color: darkblue;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>
+        Community Events
+    </h1>
+
+    <button onclick="showMusicEvents()">
+        Show Music Events
+    </button>
+
+    <div id="eventContainer"></div>
+
+    <!-- External JavaScript -->
+
+    <script>
+
+const events = [];
+
+events.push({
+
+    name: "Baking Workshop",
+
+    category: "Workshop"
+
+});
+
+events.push({
+
+    name: "Music Night",
+
+    category: "Music"
+
+});
+
+events.push({
+
+    name: "Guitar Concert",
+
+    category: "Music"
+
+});
+
+events.push({
+
+    name: "Dance Competition",
+
+    category: "Cultural"
+
+});
+
+function displayEvents(eventList){
+
+    let container =
+    document.getElementById("eventContainer");
+
+    container.innerHTML = "";
+
+    let cards = eventList.map(function(event){
+
+        return `
+
+        <div class="eventCard">
+
+            <h2>
+
+                ${event.category} on ${event.name}
+
+            </h2>
+
+            <p>
+
+                Event Category:
+                ${event.category}
+
+            </p>
+
+        </div>
+
+        `;
+
+    });
+
+
+    container.innerHTML = cards.join("");
+
+}
+
+function showMusicEvents(){
+
+    let musicEvents = events.filter(
+
+        event => event.category === "Music"
+
+    );
+
+    displayEvents(musicEvents);
+
+}
+
+displayEvents(events);
+
+    </script>
+
+</body>
+
+</html>
+

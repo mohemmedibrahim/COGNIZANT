@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>JavaScript Data Types and Operators</title>
+
+</head>
+
+<body>
+
+    <h1>
+        Community Event Registration
+    </h1>
+
+    <p id="eventDetails"></p>
+
+    <button onclick="registerSeat()">
+        Register Now
+    </button>
+
+    <p id="seatCount"></p>
+
+    <script>
+
+const eventName = "Technical Workshop";
+
+const eventDate = "15 June 2026";
+
+let availableSeats = 50;
+
+document.getElementById("eventDetails").innerHTML =
+
+`Event Name: ${eventName} <br><br>
+ Event Date: ${eventDate} <br><br>
+ Available Seats: ${availableSeats}`;
+
+function registerSeat(){
+
+    availableSeats--;
+
+
+    document.getElementById("seatCount").innerHTML =
+
+    `Remaining Seats: ${availableSeats}`;
+
+}
+
+    </script>
+
+</body>
+
+</html>
+

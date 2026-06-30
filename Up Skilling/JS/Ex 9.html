@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Async JavaScript Promises Async Await</title>
+
+    <style>
+
+        body{
+
+            font-family: Arial, sans-serif;
+
+            background-color: #f2f2f2;
+
+            padding: 20px;
+
+        }
+
+        h1{
+
+            text-align: center;
+
+            color: darkblue;
+
+        }
+
+        #loader{
+
+            text-align: center;
+
+            font-size: 22px;
+
+            color: green;
+
+            margin-top: 20px;
+
+            display: none;
+
+        }
+
+        #eventContainer{
+
+            width: 80%;
+
+            margin: 20px auto;
+
+        }
+
+        .eventCard{
+
+            background-color: white;
+
+            padding: 20px;
+
+            margin-bottom: 20px;
+
+            border-radius: 10px;
+
+            box-shadow: 0px 0px 10px gray;
+
+        }
+
+        button{
+
+            padding: 10px 15px;
+
+            margin: 10px;
+
+            background-color: blue;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+        }
+
+        button:hover{
+
+            background-color: darkblue;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>
+        Community Events
+    </h1>
+
+    <div style="text-align:center;">
+
+        <button onclick="fetchEventsUsingThen()">
+
+            Fetch Using Then Catch
+
+        </button>
+
+        <button onclick="fetchEventsAsync()">
+
+            Fetch Using Async Await
+
+        </button>
+
+    </div>
+
+    <div id="loader">
+
+        Loading Events...
+
+    </div>
+
+    <div id="eventContainer"></div>
+
+    <script>
+        
+const apiURL =
+
+"https://jsonplaceholder.typicode.com/users";
+
+function displayEvents(data){
+
+    const container =
+
+    document.getElementById(
+        "eventContainer"
+    );
+
+    container.innerHTML = "";
+
+    data.forEach(function(event){
+
+        container.innerHTML +=
+
+        `
+        <div class="eventCard">
+
+            <h2>${event.name}</h2>
+
+            <p>
+                Email: ${event.email}
+            </p>
+
+            <p>
+                City: ${event.address.city}
+            </p>
+
+        </div>
+        `;
+
+    });
+
+}
+function fetchEventsUsingThen(){
+
+    document.getElementById(
+        "loader"
+    ).style.display = "block";
+
+    fetch(apiURL)
+
+    .then(function(response){
+
+        return response.json();
+
+    })
+
+    .then(function(data){
+
+        document.getElementById(
+            "loader"
+        ).style.display = "none";
+
+        displayEvents(data);
+
+        console.log(
+            "Data Loaded Successfully"
+        );
+
+    })
+
+    .catch(function(error){
+
+        document.getElementById(
+            "loader"
+        ).style.display = "none";
+
+        console.log(
+            "Error Fetching Data:",
+            error
+        );
+
+        alert(
+            "Failed to Load Events"
+        );
+
+    });
+
+}
+async function fetchEventsAsync(){
+
+    try{
+        document.getElementById(
+            "loader"
+        ).style.display = "block";
+
+        const response =
+        await fetch(apiURL);
+
+        const data =
+        await response.json();
+
+        document.getElementById(
+            "loader"
+        ).style.display = "none";
+
+        displayEvents(data);
+
+        console.log(
+            "Async/Await Data Loaded"
+        );
+
+    }
+    catch(error){
+
+        document.getElementById(
+            "loader"
+        ).style.display = "none";
+
+        console.log(
+            "Async/Await Error:",
+            error
+        );
+
+        alert(
+            "Error Loading Events"
+        );
+    }
+}
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Feedback Form</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .container{
+            width: 500px;
+            margin: 30px auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        h2{
+            text-align: center;
+            color: darkblue;
+        }
+
+        label{
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea{
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid gray;
+  }
+
+        button{
+            width: 100%;
+            padding: 12px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover{
+            background-color: darkblue;
+        }
+
+        #eventImage{
+            width: 200px;
+            height: 150px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #message{
+            color: green;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        #charCount{
+            color: red;
+            font-size: 14px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Event Feedback Form</h2>
+
+        <label>Phone Number</label>
+
+        <input 
+            type="text"
+            id="phone"
+            placeholder="Enter 10 digit phone number"
+            onblur="validatePhone()"
+        >
+
+        <label>Select Event</label>
+
+        <select id="eventType" onchange="showFee()">
+
+            <option value="">
+                Select Event
+            </option>
+
+            <option value="500">
+                Technical Workshop
+            </option>
+
+            <option value="300">
+                Cultural Event
+            </option>
+
+            <option value="700">
+                Sports Tournament
+            </option>
+
+        </select>
+
+        <p id="fee"></p>
+
+
+        <label>Feedback</label>
+
+        <textarea 
+            id="feedback"
+            rows="5"
+            placeholder="Enter your feedback"
+            onkeyup="countCharacters()"
+        ></textarea>
+
+        <p id="charCount">
+            Characters: 0
+        </p>
+
+        <label>Double Click Event Image</label>
+
+        <br><br>
+
+        <img 
+            src="https://via.placeholder.com/200x150"
+            id="eventImage"
+            ondblclick="enlargeImage()"
+        >
+
+        <br><br>
+        <button onclick="submitForm()">
+            Submit Feedback
+        </button>
+
+        <p id="message"></p>
+
+    </div>
+
+    <script>
+
+        function validatePhone(){
+
+            let phone = document.getElementById("phone").value;
+
+            let pattern = /^[0-9]{10}$/;
+
+            if(!pattern.test(phone)){
+
+                alert("Invalid Phone Number");
+
+            }
+
+        }
+
+
+        function showFee(){
+
+            let fee = document.getElementById("eventType").value;
+
+            document.getElementById("fee").innerHTML =
+            "Event Fee: ₹" + fee;
+
+        }
+
+        function submitForm(){
+
+            document.getElementById("message").innerHTML =
+            "Feedback Submitted Successfully!";
+
+
+        }
+        function enlargeImage(){
+
+            let image = document.getElementById("eventImage");
+
+            image.style.width = "350px";
+
+            image.style.height = "250px";
+
+        }
+        function countCharacters(){
+
+            let text =
+            document.getElementById("feedback").value;
+
+            document.getElementById("charCount").innerHTML =
+            "Characters: " + text.length;
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Working with Forms</title>
+
+    <style>
+
+        body{
+
+            font-family: Arial, sans-serif;
+
+            background-color: #f2f2f2;
+
+            padding: 20px;
+
+        }
+
+        .formContainer{
+
+            width: 400px;
+
+            margin: auto;
+
+            background-color: white;
+
+            padding: 25px;
+
+            border-radius: 10px;
+
+            box-shadow: 0px 0px 10px gray;
+
+        }
+
+        h1{
+
+            text-align: center;
+
+            color: darkblue;
+
+        }
+
+        label{
+
+            font-weight: bold;
+
+        }
+
+        input,
+        select{
+
+            width: 100%;
+
+            padding: 10px;
+
+            margin-top: 5px;
+
+            margin-bottom: 15px;
+
+            border: 1px solid gray;
+
+            border-radius: 5px;
+
+        }
+
+        button{
+
+            width: 100%;
+
+            padding: 12px;
+
+            background-color: blue;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+        }
+
+        button:hover{
+
+            background-color: darkblue;
+
+        }
+
+        .error{
+
+            color: red;
+
+            font-size: 14px;
+
+            margin-top: -10px;
+
+            margin-bottom: 10px;
+
+        }
+
+        #successMessage{
+
+            color: green;
+
+            text-align: center;
+
+            margin-top: 15px;
+
+            font-weight: bold;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="formContainer">
+
+        <h1>
+            Event Registration
+        </h1>
+
+        <form id="registrationForm">
+
+            <label>
+                Name
+            </label>
+
+            <input 
+                type="text"
+                name="userName"
+                placeholder="Enter your name"
+            >
+
+            <div id="nameError" class="error"></div>
+            <label>
+                Email
+            </label>
+
+            <input 
+                type="email"
+                name="userEmail"
+                placeholder="Enter your email"
+            >
+
+            <div id="emailError" class="error"></div>
+
+            <label>
+                Select Event
+            </label>
+
+            <select name="userEvent">
+
+                <option value="">
+                    Select Event
+                </option>
+
+                <option value="AI Workshop">
+                    AI Workshop
+                </option>
+
+                <option value="Music Concert">
+                    Music Concert
+                </option>
+
+                <option value="Sports Tournament">
+                    Sports Tournament
+                </option>
+
+            </select>
+
+            <div id="eventError" class="error"></div>
+
+            <button type="submit">
+
+                Register
+
+            </button>
+
+        </form>
+
+        <div id="successMessage"></div>
+
+    </div>
+
+    <script >
+
+const form =
+
+document.getElementById(
+    "registrationForm"
+);
+
+form.addEventListener(
+
+    "submit",
+
+    function(event){
+
+        event.preventDefault();
+
+        document.getElementById(
+            "nameError"
+        ).textContent = "";
+
+        document.getElementById(
+            "emailError"
+        ).textContent = "";
+
+        document.getElementById(
+            "eventError"
+        ).textContent = "";
+
+        document.getElementById(
+            "successMessage"
+        ).textContent = "";
+
+        const name =
+
+        form.elements["userName"].value.trim();
+
+        const email =
+
+        form.elements["userEmail"].value.trim();
+
+        const selectedEvent =
+
+        form.elements["userEvent"].value;
+
+        let isValid = true;
+
+        if(name === ""){
+
+            document.getElementById(
+                "nameError"
+            ).textContent =
+
+            "Name is required";
+
+            isValid = false;
+
+        }
+
+        if(email === ""){
+
+            document.getElementById(
+                "emailError"
+            ).textContent =
+
+            "Email is required";
+
+            isValid = false;
+
+        }
+
+        if(selectedEvent === ""){
+
+            document.getElementById(
+                "eventError"
+            ).textContent =
+
+            "Please select an event";
+
+            isValid = false;
+
+        }
+
+        if(isValid){
+
+            document.getElementById(
+                "successMessage"
+            ).textContent =
+
+            `Registration Successful for ${selectedEvent}`;
+
+            form.reset();
+
+        }
+
+    }
+
+);
+
+    </script>
+
+</body>
+
+</html>

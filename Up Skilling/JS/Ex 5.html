@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Objects and Prototypes</title>
+
+    <style>
+
+        body{
+
+            font-family: Arial, sans-serif;
+
+            background-color: #f2f2f2;
+
+            padding: 20px;
+
+        }
+
+        .eventCard{
+
+            background-color: white;
+
+            padding: 20px;
+
+            margin-bottom: 20px;
+
+            border-radius: 10px;
+
+            box-shadow: 0px 0px 10px gray;
+
+        }
+
+        h1{
+
+            color: darkblue;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>
+        Community Events
+    </h1>
+
+    <div id="eventContainer"></div>
+
+    <script>
+        function Event(
+
+    name,
+
+    category,
+
+    seats
+
+){
+
+    this.name = name;
+
+    this.category = category;
+
+    this.seats = seats;
+
+}
+
+Event.prototype.checkAvailability = function(){
+
+    if(this.seats > 0){
+
+        return "Seats Available";
+
+    }
+    else{
+
+        return "Event Full";
+
+    }
+
+};
+
+
+const event1 = new Event(
+
+    "AI Workshop",
+
+    "Technical",
+
+    10
+
+);
+
+const event2 = new Event(
+
+    "Dance Festival",
+
+    "Cultural",
+
+    0
+
+);
+
+const event3 = new Event(
+
+    "Football Tournament",
+
+    "Sports",
+
+    5
+
+);
+
+const events = [
+
+    event1,
+
+    event2,
+
+    event3
+
+];
+
+const container =
+document.getElementById("eventContainer");
+
+events.forEach(function(event){
+
+
+    let details = "";
+
+    Object.entries(event).forEach(
+
+        function([key, value]){
+
+            `<p>
+                <strong>${key}</strong> :
+                ${value}
+            </p>`;
+
+        }
+
+    );
+
+    container.innerHTML +=
+
+    `
+    <div class="eventCard">
+
+        <h2>${event.name}</h2>
+
+        ${details}
+
+        <p>
+
+            <strong>Status:</strong>
+
+            ${event.checkAvailability()}
+
+        </p>
+
+    </div>
+    `;
+
+});
+
+    </script>
+
+</body>
+
+</html>
+
+
+

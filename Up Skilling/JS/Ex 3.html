@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Conditionals Loops and Error Handling</title>
+
+    <style>
+
+        body{
+
+            font-family: Arial, sans-serif;
+
+            background-color: #f2f2f2;
+
+            padding: 20px;
+
+        }
+
+        .eventCard{
+
+            background-color: white;
+
+            padding: 20px;
+
+            margin-bottom: 20px;
+
+            border-radius: 10px;
+
+            box-shadow: 0px 0px 10px gray;
+
+        }
+
+        button{
+
+            padding: 10px 15px;
+
+            background-color: blue;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+        }
+
+        button:hover{
+
+            background-color: darkblue;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>
+        Community Events
+    </h1>
+
+    <div id="eventContainer"></div>
+
+    <script >
+        const events = [
+
+    {
+        name: "Technical Workshop",
+        date: "2026-06-20",
+        seats: 5
+    },
+
+    {
+        name: "Cultural Fest",
+        date: "2025-01-10",
+        seats: 10
+    },
+
+    {
+        name: "Sports Tournament",
+        date: "2026-07-15",
+        seats: 0
+    }
+
+];
+
+
+const today = new Date();
+ 
+events.forEach(function(event){
+
+    let eventDate = new Date(event.date);
+
+    // Condition Check
+
+    if(eventDate > today && event.seats > 0){
+
+        document.getElementById("eventContainer").innerHTML +=
+
+        `
+        <div class="eventCard">
+
+            <h2>${event.name}</h2>
+
+            <p>
+                Event Date: ${event.date}
+            </p>
+
+            <p>
+                Available Seats: 
+                <span id="${event.name}">
+                    ${event.seats}
+                </span>
+            </p>
+
+            <button onclick="registerEvent('${event.name}')">
+                Register
+            </button>
+
+        </div>
+        `;
+
+    }
+    else{
+
+        console.log(
+            `${event.name} is hidden because it is either full or expired`
+        );
+
+    }
+
+});
+ 
+function registerEvent(eventName){
+
+    try{
+
+        let selectedEvent = events.find(
+
+            event => event.name === eventName
+
+        );
+ 
+        if(selectedEvent.seats <= 0){
+
+            throw new Error(
+                "No seats available for registration"
+            );
+
+        }
+
+
+        selectedEvent.seats--;
+
+        document.getElementById(eventName).innerHTML =
+
+        selectedEvent.seats;
+
+        alert(
+            "Registration Successful for " + eventName
+        );
+
+    }
+    catch(error){
+
+        alert(
+            "Error: " + error.message
+        );
+
+        console.log(error);
+
+    }
+
+}
+    </script>
+
+</body>
+
+</html>

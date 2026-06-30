@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Modern JavaScript Features</title>
+
+    <style>
+
+        body{
+
+            font-family: Arial, sans-serif;
+
+            background-color: #f2f2f2;
+
+            padding: 20px;
+
+        }
+
+        h1{
+
+            text-align: center;
+
+            color: darkblue;
+
+        }
+
+        #eventContainer{
+
+            width: 80%;
+
+            margin: auto;
+
+        }
+
+        .eventCard{
+
+            background-color: white;
+
+            padding: 20px;
+
+            margin-bottom: 20px;
+
+            border-radius: 10px;
+
+            box-shadow: 0px 0px 10px gray;
+
+        }
+
+        button{
+
+            padding: 10px 15px;
+
+            background-color: blue;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+            margin-bottom: 20px;
+
+        }
+
+        button:hover{
+
+            background-color: darkblue;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>
+        Modern JavaScript Features
+    </h1>
+
+    <div style="text-align:center;">
+
+        <button onclick="showTechnicalEvents()">
+
+            Show Technical Events
+
+        </button>
+
+    </div>
+
+
+    <div id="eventContainer"></div>
+
+    <script>
+
+const events = [
+
+    {
+        name: "AI Workshop",
+        category: "Technical",
+        seats: 5
+    },
+
+    {
+        name: "Music Concert",
+        category: "Music",
+        seats: 10
+    },
+
+    {
+        name: "Web Development Bootcamp",
+        category: "Technical",
+        seats: 8
+    }
+
+];
+
+function displayEvents(
+
+    eventList = events
+
+){
+
+    const container =
+
+    document.getElementById(
+        "eventContainer"
+    );
+
+    container.innerHTML = "";
+
+    eventList.forEach((event) => {
+
+        const {
+
+            name,
+
+            category,
+
+            seats
+
+        } = event;
+
+        container.innerHTML +=
+
+        `
+        <div class="eventCard">
+
+            <h2>${name}</h2>
+
+            <p>
+                Category: ${category}
+            </p>
+
+            <p>
+                Available Seats: ${seats}
+            </p>
+
+        </div>
+        `;
+
+    });
+
+}
+
+function showTechnicalEvents(){
+
+    const copiedEvents = [
+
+        ...events
+
+    ];
+
+    const technicalEvents =
+
+    copiedEvents.filter(
+
+        event => event.category === "Technical"
+
+    );
+
+    displayEvents(
+
+        technicalEvents
+
+    );
+
+}
+displayEvents();
+
+    </script>
+
+</body>
+
+</html>

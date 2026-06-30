@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Functions Scope Closures and Higher Order Functions</title>
+
+    <style>
+
+        body{
+
+            font-family: Arial, sans-serif;
+
+            background-color: #f2f2f2;
+
+            padding: 20px;
+
+        }
+
+        .eventCard{
+
+            background-color: white;
+
+            padding: 20px;
+
+            margin-bottom: 20px;
+
+            border-radius: 10px;
+
+            box-shadow: 0px 0px 10px gray;
+
+        }
+
+        button{
+
+            padding: 10px 15px;
+
+            background-color: blue;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+        }
+
+        button:hover{
+
+            background-color: darkblue;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>
+        Community Event Portal
+    </h1>
+
+    <div id="eventContainer"></div>
+
+    <script >
+        const events = [];
+
+function addEvent(name, category, seats){
+
+    events.push({
+
+        name: name,
+
+        category: category,
+
+        seats: seats
+
+    });
+
+}
+
+addEvent(
+    "AI Workshop",
+    "Technical",
+    5
+);
+
+addEvent(
+    "Dance Competition",
+    "Cultural",
+    10
+);
+
+addEvent(
+    "Football Tournament",
+    "Sports",
+    8
+);
+
+
+function registrationCounter(category){
+
+    let totalRegistrations = 0;
+
+
+    return function(){
+
+        totalRegistrations++;
+
+        console.log(
+
+            `Total ${category} Registrations: ${totalRegistrations}`
+
+        );
+
+    };
+
+}
+const technicalCounter =
+registrationCounter("Technical");
+
+const culturalCounter =
+registrationCounter("Cultural");
+function registerUser(eventName){
+
+    let selectedEvent = events.find(
+
+        event => event.name === eventName
+
+    );
+
+    if(selectedEvent && selectedEvent.seats > 0){
+
+        selectedEvent.seats--;
+
+        if(selectedEvent.category === "Technical"){
+
+            technicalCounter();
+
+        }
+
+        if(selectedEvent.category === "Cultural"){
+
+            culturalCounter();
+
+        }
+
+        alert(
+
+            `Registered Successfully for ${eventName}`
+
+        );
+
+        displayEvents();
+
+    }
+    else{
+
+        alert(
+            "No seats available"
+        );
+
+    }
+
+}
+
+function filterEventsByCategory(
+
+    category,
+
+    callback
+
+){
+
+    let filteredEvents = events.filter(
+
+        event => event.category === category
+
+    );
+
+    callback(filteredEvents);
+
+}
+function displayFilteredEvents(filteredEvents){
+
+    console.log(
+
+        "Filtered Events:",
+
+        filteredEvents
+
+    );
+
+}
+filterEventsByCategory(
+
+    "Technical",
+
+    displayFilteredEvents
+
+);
+
+function displayEvents(){
+
+    let container =
+    document.getElementById("eventContainer");
+
+    container.innerHTML = "";
+
+    events.forEach(function(event){
+
+        container.innerHTML +=
+
+        `
+        <div class="eventCard">
+
+            <h2>${event.name}</h2>
+
+            <p>
+                Category: ${event.category}
+            </p>
+
+            <p>
+                Available Seats: ${event.seats}
+            </p>
+
+            <button onclick="registerUser('${event.name}')">
+
+                Register
+
+            </button>
+
+        </div>
+        `;
+
+    });
+
+}
+
+displayEvents()
+
+    </script>
+
+</body>
+
+</html>

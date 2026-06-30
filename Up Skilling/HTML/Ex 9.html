@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Geolocation Event Mapping</title>
+
+    <style>
+
+        body{
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .container{
+            width: 500px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+            text-align: center;
+        }
+
+        h2{
+            color: darkblue;
+        }
+
+        button{
+            padding: 12px 20px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: darkblue;
+        }
+
+        #locationDetails{
+            margin-top: 20px;
+            font-size: 18px;
+            color: green;
+            font-weight: bold;
+        }
+
+        #errorMessage{
+            margin-top: 15px;
+            color: red;
+            font-weight: bold;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Nearby Event Locator</h2>
+
+        <button onclick="findLocation()">
+            Find Nearby Events
+        </button>
+
+        <div id="locationDetails"></div>
+
+        <div id="errorMessage"></div>
+
+    </div>
+
+    <script>
+
+        function findLocation(){
+
+            document.getElementById("locationDetails").innerHTML = "";
+
+            document.getElementById("errorMessage").innerHTML = "";
+
+            if(navigator.geolocation){
+                let options = {
+
+                    enableHighAccuracy: true,
+
+                    timeout: 10000,
+
+                    maximumAge: 0
+
+                };
+
+                navigator.geolocation.getCurrentPosition(
+
+                    showPosition,
+
+                    showError,
+
+                    options
+
+                );
+
+            }
+            else{
+
+                document.getElementById("errorMessage").innerHTML =
+                "Geolocation is not supported by this browser.";
+
+            }
+
+        }
+
+        function showPosition(position){
+
+            let latitude =
+            position.coords.latitude;
+
+            let longitude =
+            position.coords.longitude;
+
+            document.getElementById("locationDetails").innerHTML =
+
+            "Latitude: " + latitude +
+
+            "<br><br>" +
+
+            "Longitude: " + longitude +
+
+            "<br><br>" +
+
+            "Searching nearby events...";
+
+        }
+
+        function showError(error){
+
+            let message = "";
+
+            switch(error.code){
+
+                case error.PERMISSION_DENIED:
+
+                    message =
+                    "Location permission denied by user.";
+
+                    break;
+
+                case error.POSITION_UNAVAILABLE:
+
+                    message =
+                    "Location information unavailable.";
+
+                    break;
+
+                case error.TIMEOUT:
+
+                    message =
+                    "Location request timed out.";
+
+                    break;
+
+                case error.UNKNOWN_ERROR:
+
+                    message =
+                    "Unknown error occurred.";
+
+                    break;
+
+            }
+
+            document.getElementById("errorMessage").innerHTML =
+            message;
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+

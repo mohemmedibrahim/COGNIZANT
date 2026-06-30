@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Debugging with Chrome DevTools</title>
+
+    <style>
+
+        body{
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .container{
+            width: 500px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+            text-align: center;
+        }
+
+        h2{
+            color: darkblue;
+        }
+
+        button{
+            padding: 12px 20px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: darkblue;
+        }
+
+        #result{
+            margin-top: 20px;
+            color: green;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Chrome DevTools Debugging Demo</h2>
+
+        <p>
+            Open Chrome DevTools using F12 or Right Click → Inspect
+        </p>
+
+        <button onclick="calculateTotal()">
+            Calculate Total
+        </button>
+
+        <p id="result"></p>
+
+    </div>
+
+    <script>
+
+        function calculateTotal(){
+
+            let price = 500;
+
+            let quantity = 3;
+
+            console.log("Price:", price);
+
+            console.log("Quantity:", quantity);
+
+            let total = price * quantity;
+
+            console.log("Total Amount:", total);
+
+            document.getElementById("result").innerHTML =
+            "Total Amount = ₹" + total;
+        }
+    </script>
+</body>
+
+</html>
+
