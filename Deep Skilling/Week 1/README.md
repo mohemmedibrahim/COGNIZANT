@@ -1,4 +1,4 @@
-# Digital Nurture Java FSE
+# Digital Nurture 5.0 Java FSE
 
 ## Deepskilling (Week 1)
 
@@ -16,5 +16,3 @@
 ## Objective
 To understand and implement the basic software design patterns using Java as part of the CTS Digital Nurture Java FSE Deep Skilling Program.
 
-## Author
-**MOHEMMED IBRAHIM**
