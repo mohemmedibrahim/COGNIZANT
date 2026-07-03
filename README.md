@@ -62,6 +62,7 @@ The **Up Skilling** program focuses on strengthening frontend development and da
 - JavaScript (ES6)
 - SQL
 - Bootstrap
+- Core Java
 
 ---
 
