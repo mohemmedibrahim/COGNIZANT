@@ -8,6 +8,7 @@
 - JavaScript
 - SQL
 - Bootstrap
+- Core Java
 
 ## Technologies Used
 - HTML5
