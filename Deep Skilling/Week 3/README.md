@@ -1,4 +1,4 @@
-# CTS Digital Nurture Java FSE - Deep Skilling (Week 3)
+# Digital Nurture Java FSE - Deep Skilling (Week 3)
 
 ## Skills Covered
 - Spring REST using Spring Boot 3
