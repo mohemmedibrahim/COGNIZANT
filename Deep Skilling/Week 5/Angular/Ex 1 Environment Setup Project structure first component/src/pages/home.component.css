@@ -1,0 +1,13 @@
+h1{
+    color:#1976d2;
+}
+
+.stats{
+    margin-top:20px;
+}
+
+.stats span{
+    display:block;
+    margin:10px 0;
+    font-size:18px;
+}

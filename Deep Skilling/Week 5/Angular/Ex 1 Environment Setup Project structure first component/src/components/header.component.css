@@ -1,0 +1,20 @@
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#1976d2;
+    padding:15px;
+}
+
+.brand{
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+}
+
+a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+}
+
