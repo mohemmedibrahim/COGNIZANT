@@ -100,28 +100,6 @@ After completing this week, I was able to:
 - Test REST APIs using Postman
 - Build enterprise-level backend applications
 
----
 
-## 📖 Repository Structure
-
-```
-src/
- ├── controller/
- ├── service/
- ├── repository/
- ├── entity/
- ├── exception/
- └── resources/
-```
-
----
-
-## 🎓 Program
-
-**Cognizant Digital Nurture 5.0**  
-**Java Full Stack Engineer (FSE) – Deep Skilling**  
-**Week 3 – Spring Boot & RESTful Web Services**
-
---ogy
 
 ---
