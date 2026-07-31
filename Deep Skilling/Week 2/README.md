@@ -1,15 +1,7 @@
-# Digital Nurture 5.0 – Java FSE Deep Skilling (Week 2)
+# Digital Nurture 5.0 Java FSE
+## Deep Skilling (Week 2)
 
-## 📌 Overview
-
-This repository contains the hands-on exercises and practice implementations completed as part of the **Cognizant Digital Nurture 5.0 – Java Full Stack Engineer (FSE) Deep Skilling Program (Week 2)**.
-
-This week focuses on learning the fundamentals of the **Spring Framework**, building **Maven-based Spring Boot applications**, integrating databases using **Spring Data JPA** and **Hibernate ORM**, and developing **RESTful Web Services**.
-
----
-
-## 🚀 Skills Covered
-
+### Skills
 - Spring Core
 - Spring Boot
 - Spring Data JPA
@@ -17,81 +9,31 @@ This week focuses on learning the fundamentals of the **Spring Framework**, buil
 - Maven
 - REST API Development
 
----
-
-## 🛠️ Technologies Used
-
+### Technologies Used
 - Java
+- IntelliJ IDEA / Eclipse IDE
+- Maven
 - Spring Framework
 - Spring Boot
 - Spring Data JPA
-- Hibernate ORM
-- Maven
+- Hibernate
 - MySQL
-- IntelliJ IDEA / Eclipse IDE
-- Git & GitHub
 
----
+### Objective
+To learn the fundamentals of the Spring Framework, build Maven-based applications, connect with databases using Spring Data JPA and Hibernate, and develop RESTful web applications.
 
-## 🎯 Learning Objectives
+### How to Run
+- Clone the repository.
+- Open the project in IntelliJ IDEA or Eclipse.
+- Wait for Maven to download all dependencies.
+- Configure the database details in `application.properties` (if required).
+- Build the project using Maven.
+- Run the main Spring Boot application class.
+- Open the browser or Postman to test the application.
 
-- Understand the fundamentals of the Spring Framework.
-- Build Maven-based Spring Boot applications.
-- Connect Spring applications with MySQL databases.
-- Perform database operations using Spring Data JPA and Hibernate.
-- Develop RESTful Web Services.
-- Learn enterprise application development using the Spring ecosystem.
-
----
-
-## 📂 Topics Covered
-
-- Spring Core Fundamentals
-- Spring Boot Basics
-- Maven Project Setup
-- Dependency Management
-- Spring Data JPA
-- Hibernate ORM
-- Entity Mapping
-- CRUD Operations
-- REST API Development
-- Database Connectivity
-- Application Configuration
-
----
-
-## ▶️ How to Run
-
-1. Clone the repository.
-
-```bash
-git clone <repository-url>
-```
-
-2. Open the project in **IntelliJ IDEA** or **Eclipse IDE**.
-
-3. Wait for Maven to download all required dependencies.
-
-4. Configure the database details in `application.properties` (if required).
-
-5. Build the project using Maven.
-
-6. Run the Spring Boot main application class.
-
-7. Test the application using **Postman** or a web browser.
-
----
-
-## 📚 Learning Outcomes
-
-After completing this week, I was able to:
-
-- Understand Spring Core concepts.
-- Build Spring Boot applications.
-- Connect applications with MySQL.
-- Perform database operations using Spring Data JPA and Hibernate ORM.
-- Develop and test RESTful APIs.
-- Manage project dependencies using Maven.
-
-
-
+### Learning Outcomes
+- Understood Spring Core concepts.
+- Built Spring Boot applications.
+- Connected applications with MySQL.
+- Performed database operations using Spring Data JPA and Hibernate.
+- Developed and tested REST APIs.
